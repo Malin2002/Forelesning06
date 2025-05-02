@@ -16,7 +16,7 @@ const crs = {
     name: "urn:ogc:def:crs:OGC:1.3:CRS84",
   },
 };
-app.get("/Forelesning06/api/kommuner", async (c) => {
+app.get("/geojson/kommuner.geojson", async (c) => {
   const result = await postgresql.query(
     `
     select kommunenummer, kommunenavn, st_transform(omrade, 4326)::json geometry
@@ -35,7 +35,7 @@ app.get("/Forelesning06/api/kommuner", async (c) => {
     ),
   });
 });
-app.get("/Forelesning06/api/skoler", async (c) => {
+app.get("/api/skoler", async (c) => {
   const result = await postgresql.query(
     `
       select skolenavn, fylke.fylkesnummer, st_transform(posisjon, 4326)::json as geometry
