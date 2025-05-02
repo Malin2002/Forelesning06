@@ -14,13 +14,13 @@ useGeographic();
 const osmLayer = new TileLayer({ source: new OSM() });
 const municipalityLayer = new VectorLayer({
   source: new VectorSource({
-    url: "/api/kommuner",
+    url: "/Forelesning06/api/kommuner",
     format: new GeoJSON(),
   }),
 });
 const schoolLayer = new VectorLayer({
   source: new VectorSource({
-    url: "/api/skoler",
+    url: "/Forelesning06/api/skoler",
     format: new GeoJSON(),
   }),
 });
