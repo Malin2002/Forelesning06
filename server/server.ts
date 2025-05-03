@@ -16,7 +16,7 @@ const crs = {
     name: "urn:ogc:def:crs:OGC:1.3:CRS84",
   },
 };
-app.get("/geojson/kommuner.geojson", async (c) => {
+app.get("/api/kommuner", async (c) => {
   const result = await postgresql.query(
     `
     select kommunenummer, kommunenavn, st_transform(omrade, 4326)::json geometry
